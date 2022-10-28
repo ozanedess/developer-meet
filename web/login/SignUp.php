@@ -10,7 +10,9 @@
 <body>
         <!-- sign up html -->
         <form action="" method="post">
-            <input type="text" name="username" placeholder="username">
+            <label>
+                <input type="text" name="username" placeholder="username">
+            </label>
             <input type="password" name="password" placeholder="password">
             <input type="submit" value="Giriş Yap">
         </form>
