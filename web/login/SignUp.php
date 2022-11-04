@@ -23,7 +23,7 @@
 </body>
 </html>
 <?php
-include "mysql/MysqlConnector.php";
+
 
 if ($_POST) {
     $username = $_POST['username'];
@@ -31,12 +31,11 @@ if ($_POST) {
 
 
   // create and save user
-    $connector = connector();
-    //select all users
-    $query = $connector->query("SELECT * FROM users WHERE username = '$username' AND password = '$password'")->fetch_assoc();
-    echo $query;
+    $connector = new mysqli("localhost", "root", "", "lib");
+
+   
     $query = $connector->query("INSERT INTO users (username, password) VALUES ('$username', '$password')");
-    echo $query;
+    
     if ($query) {
         echo "Kullanıcı başarıyla oluşturuldu";
     } else {

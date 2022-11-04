@@ -18,7 +18,7 @@
 
 <?php
 
-include "mysql/MysqlConnector.php";
+
 session_start();
 
 
@@ -33,7 +33,8 @@ if ($_POST) {
     if (isset($_SESSION["Oturum"]) && $_SESSION["Oturum"] == "6789") {
         header("Location:admin.php");
     } else {
-        $connector = connector();
+        $connector = new mysqli("localhost", "root", "", "lib");
+        
         $query = $connector->query("SELECT * FROM users WHERE username = '$username' AND password = '$password'")->fetch_assoc();
         if ($query) {
             $_SESSION["Oturum"] = "6789";
